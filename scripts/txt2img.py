@@ -18,7 +18,11 @@ from ldm.models.diffusion.ddim import DDIMSampler
 from ldm.models.diffusion.plms import PLMSSampler
 from ldm.models.diffusion.dpm_solver import DPMSolverSampler
 
+import time
+
 torch.set_grad_enabled(False)
+
+print(f"cuda: {torch.cuda.is_available()}")
 
 def chunk(it, size):
     it = iter(it)
@@ -212,6 +216,7 @@ def put_watermark(img, wm_encoder=None):
 
 
 def main(opt):
+    start = time.time()
     seed_everything(opt.seed)
 
     config = OmegaConf.load(f"{opt.config}")
@@ -381,6 +386,7 @@ def main(opt):
 
     print(f"Your samples are ready and waiting for you here: \n{outpath} \n"
           f" \nEnjoy.")
+    print(f"Elapsed time {int(time.time()-start)}s")
 
 
 if __name__ == "__main__":
