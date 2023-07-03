@@ -227,7 +227,7 @@ def main(opt):
         "a high heel shoe",
         "a marble bust"
     ]:
-        opt.prompt = prompt+" over a white background."
+        opt.prompt = prompt+" alone on a white background. Studio lighting. High contrast."
         for trial in range(10):
 
             
