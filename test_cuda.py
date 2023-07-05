@@ -14,3 +14,10 @@ else:
     ][0].split(" ")[-1]
     print("Cuda OK")
     print("CUDA version:", CUDA_version)
+
+
+print(torch.cuda.device_count())
+
+cuda0 = torch.cuda.set_device(1)
+print(torch.cuda.current_device())  # output: 0
+print(torch.cuda.get_device_name(0))

@@ -6,3 +6,4 @@ pip3 install -r requirements.txt
 python3 setup.py install
 
 # python scripts/txt2img_db_gen.py --prompt "a puppy" --ckpt checkpoints/v2-1_768-ema-pruned.ckpt --config configs/stable-diffusion/v2-inference-v.yaml --H 768 --W 768 --device cuda --n_samples 1
+# python scripts/txt2img_db_gen.py --prompt "a puppy" --ckpt checkpoints/v2-1_768-ema-pruned.ckpt --config configs/stable-diffusion/v2-inference-v.yaml --H 768 --W 768 --device cuda --n_samples 1 --n_iter 100 --seed 3

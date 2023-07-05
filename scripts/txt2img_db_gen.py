@@ -21,6 +21,8 @@ from ldm.models.diffusion.dpm_solver import DPMSolverSampler
 import time
 import warnings
 
+torch.cuda.set_device(1)
+
 torch.set_grad_enabled(False)
 
 print(f"cuda: {torch.cuda.is_available()}")
@@ -387,7 +389,7 @@ with warnings.catch_warnings():
                                     x_sample = 255. * rearrange(x_sample.cpu().numpy(), 'c h w -> h w c')
                                     img = Image.fromarray(x_sample.astype(np.uint8))
                                     img = put_watermark(img, wm_encoder)
-                                    img = img.resize((448,448))
+                                    # img = img.resize((448,448))
                                     img.save(os.path.join(sample_path, f"{base_count:05}.png"))
                                     base_count += 1
                                     sample_count += 1
